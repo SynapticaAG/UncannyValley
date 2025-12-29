@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meine Website</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 0; line-height: 1.6; }
+    header { padding: 48px 20px; background: #111; color: #fff; }
+    main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    img { width: 100%; border-radius: 14px; }
+    .card { padding: 16px; border: 1px solid #eee; border-radius: 14px; }
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hi, ich bin Alessandro</h1>
+    <p>Willkommen auf meiner kleinen Seite. Hier findest du ein bisschen Text und Bilder.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Über mich</h2>
+      <p>Hier kommt dein Text rein (z. B. Studium, Projekte, Hobbys, Kontakt).</p>
+    </section>
+
+    <h2 style="margin-top:28px;">Bilder</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/bild1.jpg" alt="Beschreibung Bild 1">
+        <p>Kurzer Text zum Bild.</p>
+      </div>
+      <div class="card">
+        <img src="images/bild2.jpg" alt="Beschreibung Bild 2">
+        <p>Noch ein kurzer Text.</p>
+      </div>
+    </div>
+
+    <section class="card" style="margin-top:28px;">
+      <h2>Kontakt</h2>
+      <p>E-Mail: <a href="mailto:deinname@mail.de">deinname@mail.de</a></p>
+    </section>
+  </main>
+</body>
+</html>
