@@ -1,47 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meine Website</title>
+  <meta charset="UTF-8">
+  <title>Uncanny Valley & KI-Avatare – Synaptica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body { font-family: system-ui, Arial; margin: 0; line-height: 1.6; }
-    header { padding: 48px 20px; background: #111; color: #fff; }
-    main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    img { width: 100%; border-radius: 14px; }
-    .card { padding: 16px; border: 1px solid #eee; border-radius: 14px; }
-    a { color: inherit; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #111;
+      line-height: 1.75;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* --- NEU: Layout für Content + Reiter --- */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* Linker Content als "Card" */
+    .content {
+      background: white;
+      padding: 40px 24px;
+      border-radius: 16px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 30px 0;
+      display: block;
+    }
+
+    h2 {
+      margin-top: 60px;
+      font-size: 26px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-bottom: 40px;
+      color: #555;
+    }
+
+    .logo-footer {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    blockquote {
+      background: #f1f5f9;
+      padding: 20px;
+      border-left: 4px solid #0f172a;
+      margin: 30px 0;
+      font-size: 15px;
+    }
+
+    /* --- NEU: Rechter Reiter (TOC) --- */
+    .toc {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      padding: 16px 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    .toc-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .toc a:hover {
+      background: rgba(15, 23, 42, 0.06);
+    }
+
+    .toc-sub {
+      margin: 4px 0 10px 10px;
+      border-left: 2px solid rgba(15, 23, 42, 0.08);
+      padding-left: 10px;
+    }
+
+    .toc-sub a {
+      font-size: 13px;
+      opacity: 0.9;
+      padding: 6px 10px;
+    }
+
+    /* Mobile: Reiter nach oben, alles untereinander */
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        order: -1;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Uncanny Valley Logo">
+        </a>
+      </div>
+
+      <!-- NAV / TITEL -->
+      <nav class="main-nav">
+        <a href="#einleitung">Einleitung</a>
+        <a href="#theorie">Theorie</a>
+        <a href="#design">Avatar-Design</a>
+      </nav>
+
+    </div>
+  </header>
+
   <header>
-    <h1>Hi, ich bin Alessandro</h1>
-    <p>Willkommen auf meiner kleinen Seite. Hier findest du ein bisschen Text und Bilder.</p>
+    <h2>"Fast menschlich. Und doch unheimlich"</h2>
+    <h1>Uncanny Valley & die Akzeptanz von KI Avataren</h1>
+    <p>Synaptica – Learn Smarter.</p>
+
+    <p style="font-size: 14px; opacity: 0.8;">
+      Alessandro Garofalo, Melisa Aydogan, Johannes Eller
+    </p>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Über mich</h2>
-      <p>Hier kommt dein Text rein (z. B. Studium, Projekte, Hobbys, Kontakt).</p>
-    </section>
 
-    <h2 style="margin-top:28px;">Bilder</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/bild1.jpg" alt="Beschreibung Bild 1">
-        <p>Kurzer Text zum Bild.</p>
-      </div>
-      <div class="card">
-        <img src="images/bild2.jpg" alt="Beschreibung Bild 2">
-        <p>Noch ein kurzer Text.</p>
-      </div>
-    </div>
+    <!-- LINKS: Content -->
+    <article class="content">
 
-    <section class="card" style="margin-top:28px;">
-      <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:deinname@mail.de">deinname@mail.de</a></p>
-    </section>
+      <!-- HERO -->
+      <img src="images/vrbrille" alt="Synaptica KI-Avatar in immersiver Lernumgebung">
+
+      <!-- 1. EINLEITUNG -->
+      <section id="einleitung">
+        <h2 style="color: black;">1. Einleitung</h2>
+
+        <h3 id="synaptica" style="margin-top:18px;">a. Synaptica</h3>
+        <p style="color: black;">
+          Synaptica entwickelt digitale Schulungslösungen für Unternehmen mit dem Ziel,
+          Lernen effizienter, flexibler und nachhaltiger zu gestalten. Klassische
+          E-Learning-Formate wie Videos oder modulare Kurse ermöglichen zwar einen
+          strukturierten Wissenstransfer, sind jedoch wenig flexibel, wenn Inhalte zu
+          einem späteren Zeitpunkt gezielt nachgeschlagen werden sollen.
+        </p>
+
+        <h3 id="warum-blog" style="margin-top:18px;">b. Wieso gibt es diesen Blogeintrag?</h3>
+        <p>
+          Vor diesem Hintergrund arbeitet Synaptica an der Entwicklung KI-gestützter
+          Avatare, die als interaktive Lernassistenten fungieren. Diese Avatare sollen
+          es Lernenden ermöglichen, Fragen zu konkreten Schulungsinhalten zu stellen,
+          ohne eine vollständige Schulung erneut absolvieren zu müssen. Damit rückt
+          nicht nur die technische Leistungsfähigkeit, sondern vor allem die Akzeptanz
+          solcher Avatare in den Fokus.
+        </p>
+
+        <!-- PRODUKT -->
+        <img src="images/laptop mit logo" alt="Synaptica Lernplattform auf Laptop">
+
+        <h3 id="uncanny-valley" style="margin-top:18px;">c. Uncanny Valley</h3>
+
+        <h2 style="margin-top:18px;">Synaptica und interaktive Lernavatare</h2>
+        <p>
+          Der Einsatz von KI-Avataren im Weiterbildungskontext verspricht eine neue Form
+          des situativen Lernens. Lernende können Wissen genau dann abrufen, wenn es
+          benötigt wird, etwa zur Wiederholung einzelner Konzepte oder zur Klärung
+          spezifischer Fragen. Damit sollen Lernprozesse effizienter gestaltet und die
+          Überforderung durch umfangreiche Schulungsmaterialien reduziert werden.
+        </p>
+
+        <p>
+          Gleichzeitig stellt sich für Synaptica die Frage, wie solche Avatare gestaltet
+          werden müssen, um als hilfreich, kompetent und vertrauenswürdig wahrgenommen
+          zu werden. Insbesondere stark menschenähnliche Avatare können unerwartete
+          emotionale Reaktionen hervorrufen, die den Lernerfolg beeinträchtigen.
+        </p>
+
+        <!-- LOGO BREAK -->
+        <img src="images/logo" alt="Synaptica Logo – Übergang zur Theorie">
+
+        <h2>Das Uncanny Valley</h2>
+        <p>
+          Das Konzept des sogenannten <em>Uncanny Valley</em> geht auf den japanischen
+          Robotiker Masahiro Mori zurück. Mori beschreibt einen Zusammenhang zwischen
+          der Menschähnlichkeit künstlicher Entitäten und der emotionalen Reaktion von
+          Menschen auf diese. Mit zunehmender Menschähnlichkeit steigt zunächst die
+          wahrgenommene Vertrautheit, bevor sie bei nahezu menschlich wirkenden Objekten
+          abrupt abfällt.
+        </p>
+
+        <blockquote>
+          “I have noticed that, in climbing toward the goal of making robots appear human,
+          our affinity for them increases until we come to a valley, which I call the
+          uncanny valley.”
+          <br><br>
+          Mori (1970), p. 33
+        </blockquote>
+
+        <p>
+          Dieser Einbruch wird als Uncanny Valley bezeichnet und äußert sich häufig in
+          Form von Unbehagen oder Irritation. Besonders relevant ist hierbei die
+          Inkongruenz zwischen äußerer Menschähnlichkeit und tatsächlichem Verhalten,
+          etwa bei Mimik, Bewegung oder sprachlicher Interaktion.
+        </p>
+      </section>
+
+      <!-- 2. THEORIE -->
+      <section id="theorie">
+        <h2>2. Theoretische Grundlage</h2>
+
+        <h3 id="praxisrelevanz">a. Relevanz für die Praxis</h3>
+        <p>
+          Aktuelle Forschung zeigt, dass das Uncanny Valley kein rein ästhetisches
+          Problem darstellt, sondern eng mit psychologischen Mechanismen wie
+          Erwartungsverletzungen und Ambiguität verbunden ist. Menschen entwickeln bei
+          stark menschenähnlichen Avataren implizite Erwartungen an soziale Kompetenz,
+          die durch inkonsistentes Verhalten schnell enttäuscht werden können.
+        </p>
+      </section>
+
+      <!-- 3. AVATAR-DESIGN -->
+      <section id="design">
+        <h2>3. KI Avatar Gestaltungsempfehlung</h2>
+
+        <h3 id="grundprinzipien">a. Grundprinzipien</h3>
+        <p>
+          Für Synaptica bedeutet dies, dass die visuelle Gestaltung von KI-Avataren
+          sorgfältig auf den Nutzungskontext abgestimmt werden muss. Besonders
+          semi-realistische Avatare bergen ein erhöhtes Risiko, in das Uncanny Valley
+          zu fallen, da sie hohe Erwartungen erzeugen, die technisch nicht immer
+          erfüllt werden können.
+        </p>
+
+        <h3 id="unsere-avatare">b. Unsere Avatare</h3>
+        <p>
+          Eine bewusste Stilisierung, konsistente Interaktionsmuster und transparente
+          Kommunikation über die Fähigkeiten des Avatars können dazu beitragen,
+          Akzeptanz zu fördern und Unbehagen zu vermeiden.
+        </p>
+
+        <!-- BUSINESS -->
+        <img src="images/fernsehermitlogo" alt="Synaptica Präsentation im Unternehmenskontext">
+
+        <h3 id="avatare-bewerten">c. Avatare bewerten</h3>
+        <p>
+          Im Kontext digitaler Schulungen können KI-Avatare insbesondere dann sinnvoll
+          eingesetzt werden, wenn sie als funktionale Lernassistenten verstanden
+          werden. Statt menschliche Interaktion zu imitieren, sollten sie gezielt
+          Unterstützung bei der Wissensabfrage bieten.
+        </p>
+
+        <!-- LEARNING CONTEXT -->
+        <img src="images/ipad" alt="Mobiler Zugriff auf Synaptica Lerninhalte">
+
+        <p>
+          Durch diesen Ansatz kann Synaptica den Mehrwert von KI-Avataren nutzen, ohne
+          unnötige Risiken für Akzeptanz und Vertrauen einzugehen.
+        </p>
+      </section>
+
+      <!-- 4. FAZIT -->
+      <section id="fazit">
+        <h2>4. Ausblick / Fazit</h2>
+        <p>...</p>
+      </section>
+
+    </article>
+
+    <!-- RECHTS: Reiter -->
+    <aside class="toc">
+      <div class="toc-card">
+        <div class="toc-title">Kapitel</div>
+
+        <a href="#einleitung">1. Einleitung</a>
+        <div class="toc-sub">
+          <a href="#synaptica">a. Synaptica</a>
+          <a href="#warum-blog">b. Wieso Blogeintrag?</a>
+          <a href="#uncanny-valley">c. Uncanny Valley</a>
+        </div>
+
+        <a href="#theorie">2. Theoretische Grundlage</a>
+        <div class="toc-sub">
+          <a href="#praxisrelevanz">a. Relevanz für die Praxis</a>
+        </div>
+
+        <a href="#design">3. KI Avatar Gestaltungsempfehlung</a>
+        <div class="toc-sub">
+          <a href="#grundprinzipien">a. Grundprinzipien</a>
+          <a href="#unsere-avatare">b. Unsere Avatare</a>
+          <a href="#avatare-bewerten">c. Avatare bewerten</a>
+        </div>
+
+        <a href="#fazit">4. Ausblick / Fazit</a>
+      </div>
+    </aside>
+
   </main>
+
+  <footer>
+    <img src="images/logodunkel" alt="Synaptica Logo" class="logo-footer">
+    <p>© Synaptica – Learn Smarter.</p>
+  </footer>
+
 </body>
 </html>
+
